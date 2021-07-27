@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-register">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Register
+        </div>
+
+        <form name="Form"  onsubmit="return validateForm()" class="validate">
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" placeholder="Username" type="text"  autocomplete="off">
+                
+            </div>
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">email</i>
+                </div>
+                <input id="email" placeholder="Email" type="email" autocomplete="off">
+            </div>
+
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons lock">lock</i>
+                </div>
+                <input id="password" placeholder="enter a Password" type="password"  autocomplete="off" onkeyup='check();' />
+                            
+            </div>
+              <span id='message'></span>
+                    <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="cpassword" placeholder="confirm Password" type="password"  autocomplete="off" onkeyup='check();' />
+                 
+            </div>
+            <span id='message'></span>
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">I accept Terms of Service</span>
+            </div>
+
+            <input type="submit" value="Register" />
+        </form>
+         <div class="clearfix"></div>
+
+        <div class="privacy">
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="register">
+            Do you already have an account?
+            <a href="login.html"><button id="register-link">Log In here</button></a>
+        </div>
+    </div>
+
+
+    <script>var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('cpassword').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'password matched';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'password not matched';
+  }
+}</script>
+             
+                <script type="text/javascript">
+      function validateForm(){
+    x= document.forms["Form"]["username"].value;
+    var regex = /^[a-zA-Z]+$/;
+    if (x == ""){
+        alert("Name cannot be empty");
+        return false;
+      }
+    else if (regex.test(x) == false)
+      {
+        alert("name must contain letters only!");
+        return false;
+      }  
+     x= document.forms["Form"]["email"].value;
+     var regex = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/;
+     if (x == "") {
+        alert("email cannot be empty!");
+        return false;
+     } 
+     else if (regex.test(x) == false) {
+        alert("Invalid Email");
+        return false;
+     }
+
+      
+        return true;
+}
+  </script>
+            
+
+
+</body>
+
+</html>
